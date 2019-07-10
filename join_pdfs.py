@@ -16,7 +16,7 @@ def join_pdfs(paths, output):
 @click.argument('output', type=click.File('wb'), nargs=1)
 def main(paths, output):
     """
-    A cli tool that joins an unlimited number of pdfs together.
+    A CLI tool that joins an unlimited number of pdfs together.
     Enter the paths of the pdfs to be joined in the order they will
     appear in the output pdf, and end with the output path.
     """
