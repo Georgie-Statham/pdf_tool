@@ -26,7 +26,11 @@ def split_pdf(input_path, page_ranges, output_name):
 
 @click.command()
 @click.argument('input_path', type=click.File('rb'), nargs=1)
-@click.argument('page_ranges', nargs=-1)
+@click.argument(
+    'page_ranges',
+    nargs=-1,
+    help ='enter single page numbers or hyphen separated ranges'
+)
 @click.argument('output_name', nargs=1)
 
 def main(input_path, page_ranges, output_name):
