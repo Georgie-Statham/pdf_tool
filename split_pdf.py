@@ -3,7 +3,7 @@ from PyPDF4 import PdfFileReader, PdfFileWriter
 
 def format_range(pages):
     """
-    Converts ranges inputted in format "n-m" or "n" into
+    Converts strings of form "n-m" or "n" into
     format required for python range function.
     """
     try:
@@ -26,19 +26,14 @@ def split_pdf(input_path, page_ranges, output_name):
 
 @click.command()
 @click.argument('input_path', type=click.File('rb'), nargs=1)
-@click.argument(
-    'page_ranges',
-    nargs=-1,
-    help ='enter single page numbers or hyphen separated ranges'
-)
+@click.argument('page_ranges', nargs=-1)
 @click.argument('output_name', nargs=1)
 
 def main(input_path, page_ranges, output_name):
     """
     A CLI tool that splits an input pdf into specified page ranges.
-    Enter the input paths, then the desired page ranges, and finally
-    the output path. The output pdfs will be named 'output_name_p
-    <page range>'.
+    Enter the input paths, then the desired page ranges (as single page numbers or hyphen separated ranges) and finally the output path.
+    The output pdfs will be named '<output_name>_p<page_range>'.
     """
 
     split_pdf(input_path, page_ranges, output_name)

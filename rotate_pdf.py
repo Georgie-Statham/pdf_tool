@@ -4,6 +4,7 @@ from PyPDF4 import PdfFileReader, PdfFileWriter
 def rotate_pdf(path, degrees, output):
     pdf_writer = PdfFileWriter()
     pdf_reader = PdfFileReader(path)
+
     for page in range(pdf_reader.getNumPages()):
             original = pdf_reader.getPage(page)
             pdf_writer.addPage(original.rotateClockwise(int(degrees)))
@@ -16,7 +17,8 @@ def rotate_pdf(path, degrees, output):
 def main(path, degrees, output):
     """
     A CLI tool that rotates all the pages in a pdf 90, 180, or 270
-    degrees clockwise.
+    degrees clockwise. Enter the input path, then the degrees clockwise
+    you want the pdf to be rotated, then the output path.
     """
     rotate_pdf(path, degrees, output)
 
